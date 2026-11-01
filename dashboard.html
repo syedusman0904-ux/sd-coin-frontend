@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard — SD Coin</title><link rel="stylesheet" href="style.css"><script src="config.js"></script><script defer src="app.js"></script></head>
+<body><header class="topbar"><a class="brand" href="index.html">◈ SD COIN</a><nav><a href="history.html">History</a><a id="admin-link" class="hidden" href="admin.html">Admin</a><button id="logout-button" class="link-button">Log out</button></nav></header>
+<main class="page"><div class="welcome"><div><span class="eyebrow">YOUR ACCOUNT</span><h1>Wallet dashboard</h1><p class="muted" id="welcome-name">Loading account…</p></div><span class="user-pill" id="user-id">—</span></div>
+<section class="balance-card"><p>AVAILABLE BALANCE</p><div id="balance" class="balance">— <small>SD</small></div><p class="card-foot">Your SD Coin wallet</p></section>
+<div class="two-col"><form id="transfer-form" class="panel"><h2>Send SD Coins</h2><p class="muted">Transfer coins to another member using their SD User ID.</p><label>Receiver User ID<input name="receiver_id" required maxlength="32" placeholder="SD123456"></label><label>Amount (whole SD Coins)<input name="amount" type="number" min="1" step="1" required placeholder="100"></label><button class="button primary full" type="submit">Send coins</button><p id="form-message" class="message" role="status"></p></form>
+<section class="panel"><h2>Account details</h2><div class="detail-row"><span>Display name</span><strong id="detail-name">—</strong></div><div class="detail-row"><span>Email</span><strong id="detail-email">—</strong></div><div class="detail-row"><span>Role</span><strong id="detail-role">—</strong></div><a class="button secondary full space-top" href="history.html">View transaction history</a></section></div>
+<section class="panel mining-panel space-top">
+  <div class="mining-head"><div><span class="eyebrow">PROOF OF WORK</span><h2>SD Coin Mining</h2><p class="muted">Solve a SHA-256 puzzle to add the next block to the shared chain.</p></div><span class="user-pill">25 SD / block</span></div>
+  <div class="mining-stats"><div><small>ALGORITHM</small><strong>SHA-256</strong></div><div><small>DIFFICULTY</small><strong>3 leading zeros</strong></div><div><small>STATUS</small><strong id="mining-status">Ready</strong></div><div><small>HASH RATE</small><strong id="hash-rate">0 H/s</strong></div></div>
+  <p id="online-devices" class="tiny">Checking signed-in devices…</p>
+  <div class="actions"><button id="start-mining" class="button primary" type="button">Start mining</button><button id="stop-mining" class="button secondary" type="button" disabled>Stop</button></div>
+  <p id="mining-message" class="message" role="status"></p>
+  <div class="chain-box"><h3>Latest blocks · <span id="chain-validity">Checking chain…</span></h3><div id="chain-list" class="chain-list">Loading blockchain…</div></div>
+  <p class="tiny">Mining is opt-in on each device: sign in on your mobile and laptop, then press Start on both. Each device gets a separate nonce range and the first valid block submission earns the reward. Mining pauses when a tab is hidden and uses battery/CPU while active. This is a private SD Coin demo chain, not a public blockchain or real cryptocurrency.</p>
+</section>
+<section class="panel space-top narrow">
+  <h2>Change account password</h2><p class="muted">Enter your current password and choose a new one for the account you are signed in to. Passwords are stored as secure password hashes.</p>
+  <form id="password-form"><label>Current password<input name="current_password" type="password" autocomplete="current-password" required></label><label>New password<input name="new_password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required></label><button class="button secondary full" type="submit">Update password</button><p id="password-message" class="message" role="status"></p></form>
+</section>
+</main></body></html>
